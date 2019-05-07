@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        body{
+            background-color: darkorchid; 
+        }
+        #circ {
+            width: 45px;
+            height: 45px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        a{
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+        }
+        a:hover{
+        /* color: blue; */
+        }
+        .info:hover{
+            transform: scale(1.04);
+        }
+        img{
+            height: 400px;
+        }
+    </style>
+
+
+    <title>Album Store</title>
+</head>
+
+<body>
+
+    <div class="container blue darken-2">
+        <div class="nav-wrapper green darken-3">
+            <nav>
+                <div class="nav-wrapper cyan darken-3">
+                    <a href="/" class="brand-logo ">Albumania</a>
+
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="register">Rejestracja</a></li>
+                        <li><a href="logging">Sign In </a></li>
+                        <li><a href="">takie tam</a></li>
+                        <li><a href="">takie tam</a></li>
+                   
+                    </ul>
+                </div>
+            {% if is_logged%}
+                <div class="nav-wrapper cyan darken-5">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="">Wiataj</a></li>
+                        <li><a href="">{{user.name}} </a></li>
+                        <li><a href=""></a><img id="circ" src="{% static 'img/nutki.jpg' %}" alt="" class="circle "></a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+            </nav>
+        </div>
+
+        <div style="clear:both"></div>
+        
+        <div class="row">
+            {% comment %} {% for ti in aha %} {% endcomment %}
+            <div class="col s6">
+                <div class="card orange lighten-2">
+                    <div class="card-image">
+                        {% load static %}
+                            <img src="{% static 'img/brs.jpg' %}">
+                        <!-- <span class="card-title">Card Title</span> -->
+                    </div>
+                    <span><a href="#">Koncerty</a></span>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="card orange lighten-2">
+                    <div class="card-image">
+                        {% load static %}
+                            <img src="{% static 'img/gitar.jpg' %}">
+                        <!-- <span class="card-title">Card Title</span> -->
+                    </div>
+                    <span><a href="#">Albumy</a></span>
+                </div>
+            </div>
+            <div style='clear:both'></div>
+            <div class="col s6">
+                <div class="card orange lighten-2">
+                    <div class="card-image">
+                        {% load static %}
+                            <img src="{% static 'img/nutki.jpg' %}">
+                        <!-- <span class="card-title">Card Title</span> -->
+                    </div>
+                    <span><a href="#">Wykonawcy</a></span>
+                </div>
+            </div>
+
+            <div class="col s6">
+                <div class="card orange lighten-2">
+                    <div class="card-image">
+                        {% load static %}
+                            <img src="{% static 'img/vinyl.jpg' %}">
+                        <!-- <span class="card-title">Card Title</span> -->
+                    </div>
+                    <span><a href="#">Utwory</a></span>
+                </div>
+            </div>
+            {% comment %} {% endfor %} {% endcomment %}
+        </div>
+
+        <!-- <div class="card purple lighten-5"><a href="#">{{tile3}}</a></div>
+        <div class="card purple lighten-5"><a href="#">{{tile4}}</a></div> -->
+
+        <div class="row light-blue accent-3">
+            <h1>Top 100 Albums</h1>
+            {% for album in albums %}
+            <a href="#">
+                <div class="col s2">
+                    <div class="info card small green lighten-2">
+                        {{album.album_name}} <br /><br />
+                        {{album.artist}} <br />
+                        {{album.year}}</div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </div>
+</body>
+
+</html>

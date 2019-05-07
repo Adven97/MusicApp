@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <style>
+        #circ {
+            width: 45px;
+            height: 45px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        span{
+            font-size: 30px;
+        }
+    </style>
+
+
+    <title>Album Store</title>
+</head>
+
+<body>
+<div class="container blue darken-2"></div>
+    <div class="container blue darken-2">
+        <div class="nav-wrapper green darken-3">
+            <nav>
+                <div class="nav-wrapper cyan darken-3">
+                    <a href="albumy" class="brand-logo ">Albumania</a>
+
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="albumy/register">Rejestracja</a></li>
+                        <li><a href="">xd </a></li>
+                        <li><a href="">takie tam</a></li>
+                        <li><a href="">takie tam</a></li>
+                   
+                    </ul>
+                </div>
+
+                <div class="nav-wrapper cyan darken-5">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="">Wiataj</a></li>
+                        <li><a href="">{{user.name}} </a></li>
+                        <li><a href=""></a><img id="circ" src="{% static 'img/nutki.jpg' %}" alt="" class="circle "></a>
+                        </li>
+                    </ul>
+                </div>
+            
+
+            </nav>
+        </div>
+
+        <div style="clear:both"></div>
+        
+        <div class="row">
+            <div class="col s6">
+                <div class="card orange lighten-2">
+                    <span>Udalo sie zalogować</span>             
+                </div>
+                <a href="/albumy/logged"><button>Powrót na Stronę główną </button></a>
+            </div>
+        </div>
+
+    </div>
+</div>    
+</body>
+
+</html>

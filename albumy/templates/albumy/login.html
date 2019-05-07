@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+    <title>Album Store - Sign In</title>
+</head>
+
+<body>
+<div class="container blue darken-2">
+    <div class="nav-wrapper green darken-3">
+        <nav>
+            <div class="nav-wrapper cyan darken-3">
+                <a href="/" class="brand-logo ">Albumania</a>
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="albumy/register">Rejestracja</a></li>
+                    <li><a href="">xd </a></li>
+                    <li><a href="">takie tam</a></li>
+                    <li><a href="">takie tam</a></li>
+
+                </ul>
+            </div>
+
+        </nav>
+    </div>
+    <div class="container deep-purple lighten-1">
+        <h1>Sign In !</h1>
+
+        <form action="{% url 'getUser' %}" method="POST">
+            {% csrf_token %}
+
+            {{form.as_p}}
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+
+        </form>
+
+
+    </div>
+</div>    
+</body>
+
+</html>
