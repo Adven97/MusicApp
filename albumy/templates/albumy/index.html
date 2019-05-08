@@ -40,6 +40,24 @@
         img{
             height: 400px;
         }
+        h4{
+            color: #DAA520
+        }
+        #tit{
+            margin-top:10px;
+            margin-left: 15px;
+            font-size: 36px;
+        }
+        #tit:hover{
+            transform: scale(1.04);
+            color: #DAA520
+        }
+        h2{
+            margin-left: 30px;
+        }
+        textarea{
+            background-color: whitesmoke; 
+        }
     </style>
 
 
@@ -52,13 +70,13 @@
         <div class="nav-wrapper green darken-3">
             <nav>
                 <div class="nav-wrapper cyan darken-3">
-                    <a href="/" class="brand-logo ">Albumania</a>
+                    <a href="/" class="brand-logo"><h3 id='tit'>Albumania</h3></a>
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="register">Rejestracja</a></li>
                         <li><a href="logging">Sign In </a></li>
-                        <li><a href="">takie tam</a></li>
-                        <li><a href="">takie tam</a></li>
+                        <li><a href="admin">Admin</a></li>
+                        {% comment %} <li><a href="">takie tam</a></li> {% endcomment %}
                    
                     </ul>
                 </div>
@@ -71,10 +89,47 @@
                         </li>
                     </ul>
                 </div>
-            {% endif %}
-            </nav>
-        </div>
 
+                <!-- <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                <form method="POST">
+                    <textarea name="nowypost" id="nowypost" cols="20" rows="5"></textarea>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Dodaj</button>
+                </form>
+                </div>
+                </div> -->
+                
+            {% endif %}
+        </nav>
+        </div>
+        <div style="clear:both"></div>
+        {% if is_logged%}
+        <div class="card blue-grey darken-4">
+                        <div class="card-content white-text">
+                        <form method="POST">
+                            <span>Dodaj Post</span>
+                            <textarea name="nowypost" id="nowypost" cols="20" rows="5"></textarea>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Dodaj</button>
+                        </form>
+                        </div>
+                        </div>
+        {% endif %}
+        <h2> Newsy</h2>
+       
+        <div class="row">
+        <div class="col s12 m12">
+            {% for post in posts %}
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+            <span class="card-title">{{post.title}}</span>
+            <p>{{post.body}}</p>
+            </div>
+
+        </div>
+        
+        {% endfor%}
+        </div>
+        </div>
         <div style="clear:both"></div>
         
         <div class="row">

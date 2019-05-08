@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class Album(models.Model):
 
@@ -27,3 +28,14 @@ class UserData(models.Model):
         verbose_name = "user"
         verbose_name_plural = "users"
 
+
+class Posts(models.Model):
+    title = models.CharField(max_length=240)
+    body = models.TextField()
+    created_at = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Posty"

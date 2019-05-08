@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Album, UserData
+from .models import Album, UserData, Posts
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, get_user_model, login, logout
 
 def index(req):
 
+    posts = Posts.objects.all()[:4]
     albumy = Album.objects.all()[2:100]
     tiles = ['Albumy','Wykonawcy','Ceny','Promocje']
     images=['vinyl.jpg', 'nutki.jpg', 'brs.jpg', 'gitar.jpg']
@@ -33,12 +34,14 @@ def index(req):
         'albums': albumy,
         'images':images,
         'aha' :aha,
-        'is_logged': False
+        'is_logged': False,
+        'posts': posts,
     }
     return render(req, 'albumy/index.html',context)
 
 
 def indexForLogged(req):
+    posts = Posts.objects.all()[:4]
     albumy = Album.objects.all()[2:100]
     user = UserData.objects.order_by('-pk')[0]
     tiles = ['Albumy', 'Wykonawcy', 'Ceny', 'Promocje']
@@ -69,6 +72,7 @@ def indexForLogged(req):
         'aha': aha,
         'is_logged': True,
         'user': user,
+        'posts': posts,
     }
     return render(req, 'albumy/index.html', context)
 
